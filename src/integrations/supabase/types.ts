@@ -9,7 +9,166 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      badges: {
+        Row: {
+          created_at: string
+          description: string
+          icon: string
+          id: string
+          name: string
+          rarity: string
+        }
+        Insert: {
+          created_at?: string
+          description: string
+          icon: string
+          id?: string
+          name: string
+          rarity?: string
+        }
+        Update: {
+          created_at?: string
+          description?: string
+          icon?: string
+          id?: string
+          name?: string
+          rarity?: string
+        }
+        Relationships: []
+      }
+      missions: {
+        Row: {
+          content: string | null
+          created_at: string
+          description: string
+          difficulty: string
+          id: string
+          planet: string
+          quiz_questions: Json | null
+          title: string
+        }
+        Insert: {
+          content?: string | null
+          created_at?: string
+          description: string
+          difficulty?: string
+          id?: string
+          planet: string
+          quiz_questions?: Json | null
+          title: string
+        }
+        Update: {
+          content?: string | null
+          created_at?: string
+          description?: string
+          difficulty?: string
+          id?: string
+          planet?: string
+          quiz_questions?: Json | null
+          title?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          astronaut_level: string | null
+          avatar_url: string | null
+          created_at: string
+          full_name: string | null
+          id: string
+          missions_completed: number | null
+          total_badges: number | null
+          updated_at: string
+          username: string | null
+        }
+        Insert: {
+          astronaut_level?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id: string
+          missions_completed?: number | null
+          total_badges?: number | null
+          updated_at?: string
+          username?: string | null
+        }
+        Update: {
+          astronaut_level?: string | null
+          avatar_url?: string | null
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          missions_completed?: number | null
+          total_badges?: number | null
+          updated_at?: string
+          username?: string | null
+        }
+        Relationships: []
+      }
+      user_badges: {
+        Row: {
+          badge_id: string
+          earned_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          badge_id: string
+          earned_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          badge_id?: string
+          earned_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_badges_badge_id_fkey"
+            columns: ["badge_id"]
+            isOneToOne: false
+            referencedRelation: "badges"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_missions: {
+        Row: {
+          completed_at: string | null
+          id: string
+          mission_id: string
+          score: number | null
+          status: string | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          id?: string
+          mission_id: string
+          score?: number | null
+          status?: string | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          id?: string
+          mission_id?: string
+          score?: number | null
+          status?: string | null
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "user_missions_mission_id_fkey"
+            columns: ["mission_id"]
+            isOneToOne: false
+            referencedRelation: "missions"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
