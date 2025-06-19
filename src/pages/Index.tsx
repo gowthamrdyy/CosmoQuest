@@ -1,7 +1,6 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Card, } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
@@ -24,21 +23,7 @@ const Index = () => {
         <div className="stars3"></div>
       </div>
       
-      {/* Navigation with Get Started button */}
-      <nav className="relative z-10 p-6 flex justify-between items-center">
-        <div className="flex items-center space-x-2">
-          <div className="text-2xl">🚀</div>
-          <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-purple-400 bg-clip-text text-transparent">
-            CosmoQuest
-          </span>
-        </div>
-        <Link to="/auth">
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-bold px-6 py-2 rounded-full transition-all duration-300 transform hover:scale-105">
-            🚀 Start Your Journey
-          </Button>
-        </Link>
-      </nav>
-      
+      <Navigation />
       <HeroSection />
       <HowItWorks />
       <FeaturesOverview />

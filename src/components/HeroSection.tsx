@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const HeroSection = () => {
   return (
@@ -40,12 +41,16 @@ const HeroSection = () => {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
-            🚀 Start Your Cosmic Quest
-          </Button>
-          <Button variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500/20 px-8 py-4 rounded-full text-lg transition-all duration-300">
-            Watch Demo
-          </Button>
+          <Link to="/quiz-center">
+            <Button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
+              🚀 Start Your Cosmic Quest
+            </Button>
+          </Link>
+          <Link to="/simulation-labs">
+            <Button variant="outline" className="border-purple-500 text-purple-300 hover:bg-purple-500/20 px-8 py-4 rounded-full text-lg transition-all duration-300">
+              Watch Demo
+            </Button>
+          </Link>
         </div>
 
         {/* Floating Elements */}

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Card } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 const FeaturesOverview = () => {
   const features = [
@@ -8,31 +9,36 @@ const FeaturesOverview = () => {
       icon: '🌠',
       title: 'Stellar Map',
       description: 'Interactive galaxy map with unlockable modules and cosmic territories to explore',
-      gradient: 'from-cyan-500 to-blue-600'
+      gradient: 'from-cyan-500 to-blue-600',
+      link: '/explore-map'
     },
     {
       icon: '🚀',
       title: 'Simulation Labs',
       description: 'Simulate rocket launches, planetary orbits, and zero gravity experiments',
-      gradient: 'from-purple-500 to-pink-600'
+      gradient: 'from-purple-500 to-pink-600',
+      link: '/simulation-labs'
     },
     {
       icon: '🧠',
       title: 'Quiz Center',
       description: 'Test your space knowledge with adaptive quizzes and level up your expertise',
-      gradient: 'from-green-500 to-teal-600'
+      gradient: 'from-green-500 to-teal-600',
+      link: '/quiz-center'
     },
     {
       icon: '🤖',
       title: 'AstroBot',
       description: 'Ask your cosmic questions to our AI assistant, powered by advanced GPT technology',
-      gradient: 'from-yellow-500 to-orange-600'
+      gradient: 'from-yellow-500 to-orange-600',
+      link: '/astro-bot'
     },
     {
       icon: '📈',
       title: 'Astronaut Profile',
       description: 'Track badges, progress, and completed missions in your personal space dashboard',
-      gradient: 'from-pink-500 to-purple-600'
+      gradient: 'from-pink-500 to-purple-600',
+      link: '/progress-log'
     }
   ];
 
@@ -56,38 +62,42 @@ const FeaturesOverview = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {features.map((feature, index) => (
-            <Card key={index} className="bg-slate-800/50 border-purple-500/30 backdrop-blur-sm p-6 hover:transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 group relative overflow-hidden">
-              {/* Glowing Background Effect */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
-              
-              <div className="relative z-10">
-                {/* Icon */}
-                <div className="text-5xl mb-4 group-hover:animate-bounce">
-                  {feature.icon}
+            <Link key={index} to={feature.link}>
+              <Card className="bg-slate-800/50 border-purple-500/30 backdrop-blur-sm p-6 hover:transform hover:scale-105 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/25 group relative overflow-hidden cursor-pointer">
+                {/* Glowing Background Effect */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`}></div>
+                
+                <div className="relative z-10">
+                  {/* Icon */}
+                  <div className="text-5xl mb-4 group-hover:animate-bounce">
+                    {feature.icon}
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-300">
+                    {feature.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-gray-300 leading-relaxed">
+                    {feature.description}
+                  </p>
+
+                  {/* Glowing Accent */}
+                  <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.gradient} opacity-70`}></div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-2xl font-bold text-white mb-4 group-hover:text-cyan-300 transition-colors duration-300">
-                  {feature.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-300 leading-relaxed">
-                  {feature.description}
-                </p>
-
-                {/* Glowing Accent */}
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${feature.gradient} opacity-70`}></div>
-              </div>
-            </Card>
+              </Card>
+            </Link>
           ))}
         </div>
 
         {/* CTA */}
         <div className="text-center mt-12">
-          <button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
-            🚀 Explore All Features
-          </button>
+          <Link to="/explore-map">
+            <button className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700 text-white font-bold px-8 py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25">
+              🚀 Explore All Features
+            </button>
+          </Link>
         </div>
       </div>
     </section>

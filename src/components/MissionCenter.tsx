@@ -4,6 +4,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { supabase } from '@/integrations/supabase/client';
 import { useAuth } from '@/hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 interface Mission {
   id: string;
@@ -11,12 +12,13 @@ interface Mission {
   description: string;
   planet: string;
   difficulty: string;
-  content: string;
-  quiz_questions: any[];
+  content: string | null;
+  quiz_questions: any;
 }
 
 const MissionCenter = () => {
   const { user } = useAuth();
+  const navigate = useNavigate();
   const [missions, setMissions] = useState<Mission[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -36,6 +38,10 @@ const MissionCenter = () => {
       setMissions(data || []);
     }
     setLoading(false);
+  };
+
+  const startMission = (mission: Mission) => {
+    navigate(`/mission/${mission.id}`, { state: { mission } });
   };
 
   const getDifficultyColor = (difficulty: string) => {
@@ -59,7 +65,7 @@ const MissionCenter = () => {
   if (loading) {
     return (
       <Card className="bg-slate-800/30 border-purple-500/30 backdrop-blur-sm p-6">
-        <div className="animate-pulse">Loading missions...</div>
+        <div className="animate-pulse text-white">Loading missions...</div>
       </Card>
     );
   }
@@ -87,7 +93,11 @@ const MissionCenter = () => {
             <p className="text-gray-300 text-sm mb-3">{mission.description}</p>
             <div className="flex justify-between items-center">
               <span className="text-xs text-gray-400">{mission.planet}</span>
-              <Button size="sm" className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700">
+              <Button 
+                size="sm" 
+                className="bg-gradient-to-r from-cyan-500 to-purple-600 hover:from-cyan-600 hover:to-purple-700"
+                onClick={() => startMission(mission)}
+              >
                 Start Mission
               </Button>
             </div>

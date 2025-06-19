@@ -8,6 +8,14 @@ import { AuthProvider, useAuth } from "@/hooks/useAuth";
 import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
+import ExploreMap from "./pages/ExploreMap";
+import SimulationLabs from "./pages/SimulationLabs";
+import QuizCenter from "./pages/QuizCenter";
+import AstroBot from "./pages/AstroBot";
+import ProgressLog from "./pages/ProgressLog";
+import AboutUs from "./pages/AboutUs";
+import Contact from "./pages/Contact";
+import Mission from "./pages/Mission";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -36,11 +44,26 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
+            <Route path="/explore-map" element={<ExploreMap />} />
+            <Route path="/simulation-labs" element={<SimulationLabs />} />
+            <Route path="/quiz-center" element={<QuizCenter />} />
+            <Route path="/astro-bot" element={<AstroBot />} />
+            <Route path="/progress-log" element={<ProgressLog />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<Contact />} />
             <Route 
               path="/dashboard" 
               element={
                 <ProtectedRoute>
                   <Dashboard />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/mission/:id" 
+              element={
+                <ProtectedRoute>
+                  <Mission />
                 </ProtectedRoute>
               } 
             />
