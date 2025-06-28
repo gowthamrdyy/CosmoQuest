@@ -91,5 +91,5 @@ Content and development belong to **Cosmo Quest Team**.
 
 ---
 
-## 🌠 “Education is not the filling of a pail but the lighting of a fire.” – William Butler Yeats
+## 🌠 “Sadvuko ra babu bagupaduthav” – William Butler Yeats
 
