@@ -51,6 +51,8 @@ Explore the universe now: [https://cosmic-quest-launcher.vercel.app/](https://co
 
 ## 🧰 Folder Structure
 
+```
+
 cosmo-quest/
 ├── public/
 ├── src/
@@ -63,7 +65,7 @@ cosmo-quest/
 ├── vercel.json
 └── README.md
 
-
+```
 ---
 
 ## 🔗 Links & Credits
