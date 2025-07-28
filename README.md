@@ -93,5 +93,5 @@ Content and development belong to **Cosmo Quest Team**.
 
 ---
 
-## 🌠 “Sadvuko ra babu bagupaduthav!!” – William Butler Yeats
+## 🌠 “Sadvuko ra babu bagupaduthav!!” – William Butler Yeats....
 
